@@ -28,3 +28,6 @@ node_modules
 
 # Fichero Eclipse
 .project
+
+#Variables locales
+.env
