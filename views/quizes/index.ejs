@@ -1,5 +1,22 @@
+<form method="get" action="/quizes">
+	<p>Buscar</p> 
+	<input type="text" name="search" value="Introduzca el texto aquí" />
+	<input type="submit" value="Enviar">
+</form>
 <table>
-<% var i; for (i = 0; i < quizes.length; i++) { %>
+<%
+if ( quizes.length === 0 ) {
+%>
+	 <tr><td>No hay resultados</td></tr>
+	 <tr><td><a href="quizes">Realizar búsqueda global</a></td></tr>
+<%
+} else {
+	var i; 
+	for (i = 0; i < quizes.length; i++) { 
+%>
 	<tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
-<% } %>
+<% 
+	}
+} 
+%>
 </table>
