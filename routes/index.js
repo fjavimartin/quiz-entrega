@@ -16,6 +16,9 @@ router.get('/quizes/:quizID(\\d+)', quizcontroller.show);
 router.get('/quizes/:quizID(\\d+)/answer', quizcontroller.answer);
 router.get('/quizes/new', quizcontroller.new);
 router.post('/quizes/create', quizcontroller.create);
+router.get('/quizes/:quizID(\\d+)/edit', quizcontroller.edit);
+router.put('/quizes/:quizID(\\d+)', quizcontroller.update);
+router.delete('/quizes/:quizID(\\d+)', quizcontroller.destroy);
 router.get('/author', quizcontroller.author);
 
 module.exports = router;
