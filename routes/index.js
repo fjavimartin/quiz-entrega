@@ -21,11 +21,11 @@ router.get('/logout', sessionController.destroy);
 router.get('/quizes', quizcontroller.index);
 router.get('/quizes/:quizID(\\d+)', quizcontroller.show);
 router.get('/quizes/:quizID(\\d+)/answer', quizcontroller.answer);
-router.get('/quizes/new', quizcontroller.new);
-router.post('/quizes/create', quizcontroller.create);
-router.get('/quizes/:quizID(\\d+)/edit', quizcontroller.edit);
-router.put('/quizes/:quizID(\\d+)', quizcontroller.update);
-router.delete('/quizes/:quizID(\\d+)', quizcontroller.destroy);
+router.get('/quizes/new', sessionController.loginRequired, quizcontroller.new);
+router.post('/quizes/create', sessionController.loginRequired, quizcontroller.create);
+router.get('/quizes/:quizID(\\d+)/edit', sessionController.loginRequired, quizcontroller.edit);
+router.put('/quizes/:quizID(\\d+)', sessionController.loginRequired, quizcontroller.update);
+router.delete('/quizes/:quizID(\\d+)',  sessionController.loginRequired, quizcontroller.destroy);
 
 router.get('/quizes/:quizID(\\d+)/comments/new', commentController.new);
 router.post('/quizes/:quizID(\\d+)/comments', commentController.create);
